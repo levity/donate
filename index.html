@@ -75,6 +75,8 @@
       <div class="col-sm-3 col-md-2">
         <p>With Paypal:</p>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <label for="paypal-amount">Amount:</label>
+        <input type="input" name="amount" id="paypal-amount" placeholder="ex: $10.00">
         <input type="hidden" name="cmd" value="_donations">
         <input type="hidden" name="business" value="paypal@glide.org">
         <input type="hidden" name="lc" value="US">
