@@ -8,8 +8,19 @@
   .orange { color: #f77408; }
   .logo { text-align: center; margin: 10px 0; }
   .logo img { position: relative; left: -2px; }
-  .amounts .list-group-item label { margin-bottom: 0; }
-  .amounts .list-group-item input { margin-right: 11px; position: relative; top: -1px; }
+  .amounts .list-group-item {
+    padding: 0 0 0 15px;
+    line-height: 42px;
+    height: 42px;
+  }
+  .amounts li label { margin-bottom: 0; }
+  .amounts li > input { height: 40px; margin: 0; float: left;}
+  .amounts li > div { margin-left: 28px; border-left: 1px solid #ddd; padding-left: 20px; }
+  .amounts li.custom > div { padding-left: 0; overflow: hidden; }
+  .amounts li.custom input[type="text"] {
+    border: 0; line-height: 40px; padding: 0 0 0 20px; height: 40px;
+    box-shadow: none; -webkit-box-shadow: none;
+  }
   </style>
 </head>
 <body>
@@ -27,33 +38,31 @@
 
         <ul class="list-group amounts">
           <li class="list-group-item">
-            <label>
-              <input type="radio" name="amount" value="2500">
-              $2,500
-            </label>
+            <input type="radio" name="amount" value="2500">
+            <div>$2,500</div>
           </li>
 
           <li class="list-group-item">
-            <label>
-              <input type="radio" name="amount" value="1000">
-              $1,000
-            </label>
+            <input type="radio" name="amount" value="1000">
+            <div>$1,000</div>
           </li>
 
           <li class="list-group-item">
-            <label>
-              <input type="radio" name="amount" value="500">
-              $500
-            </label>
+            <input type="radio" name="amount" value="500" checked>
+            <div>$500</div>
+          </li>
+
+          <li class="list-group-item custom">
+            <input type="radio" name="amount" value="custom">
+            <div>
+              <input type="text" name="custom_amount" class="form-control" placeholder="Enter an amount">
+            </div>
           </li>
 
         </ul>
         <br/>
 
-        <button class="btn btn-default">Click me</button>
-        <button class="btn btn-success">No, click me!</button>
-        <button class="btn btn-info">Click me too</button>
-        <button class="btn btn-warning">Yep</button>
+        <button class="btn btn-default start-payment">Take my dollars</button>
       </div>
 
     </div>
@@ -68,7 +77,16 @@
       $('.amounts .list-group-item').click(function() {
         $('.amounts input').prop('checked', false);
         $(this).find('input').prop('checked', true);
-      })
+      });
+
+      $('.start-payment').click(function() {
+        var amount = $('[name="amount"]:checked').val();
+        if (amount == 'custom')
+          amount = $('[name="custom_amount"]').val();
+
+        alert(amount);
+
+      });
     })
   </script>
 </body>
