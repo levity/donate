@@ -1,12 +1,21 @@
-.paypal-donations {
-  margin: 20px;
+.orange { color: #f77408; }
+.logo { text-align: center; margin: 10px 0; }
+.logo img { position: relative; left: -2px; }
+h4 { margin-top: 30px; }
+.amounts .list-group-item {
+  padding: 0 0 0 15px;
+  line-height: 42px;
+  height: 42px;
 }
-
-#paypal-amount {
-  display: block;
-  margin-bottom: 10px;
+.amounts li label { margin-bottom: 0; }
+.amounts li > input { height: 40px; margin: 0; float: left;}
+.amounts li > div { margin-left: 28px; border-left: 1px solid #ddd; padding-left: 20px; }
+.amounts li.custom > div { padding-left: 0; overflow: hidden; }
+.amounts li.custom input[type="text"] {
+  border: 0; line-height: 40px; padding: 0 0 0 20px; height: 40px;
+  box-shadow: none; -webkit-box-shadow: none;
 }
-
-.paypal-donations img {
-  display: block;
-}
+.modal-body .message { margin: 0; }
+.paypal-donations { margin: 20px; }
+#paypal-amount { display: block; margin-bottom: 10px; }
+.paypal-donations img { display: block; }
