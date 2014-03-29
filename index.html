@@ -88,12 +88,39 @@
         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
         </form>
       </div>
+
+      <div class="col-sm-3 col-md-2">
+        <p>With Amazon Simple Pay:</p>
+        <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+          <input type="hidden" name="returnUrl" value="http://www.glide.org" >
+          <input type="hidden" name="processImmediate" value="1" >
+          <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+          <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+          <input type="hidden" name="collectShippingAddress" value="0" >
+          <input type="hidden" name="isDonationWidget" value="0" >
+          <input type="hidden" name="amazonPaymentsAccountId" value="XHWRVRUHBPYO2283NDJS5FXTMSN5AN7GURBRMC" >
+          <input type="hidden" name="cobrandingStyle" value="logo" >
+          <input type="hidden" name="immediateReturn" value="1" >
+          <input type="hidden" name="amount" value="USD 10" >
+          <input type="hidden" name="description" value="Donate to Glide" >
+          <input type="hidden" name="abandonUrl" value="http://www.glide.org/donate" >
+          <input type="hidden" name="signatureVersion" value="2" >
+          <input type="hidden" name="signature" value="mnuI29O9GQ3ZLEsWpDbdLcA5whvdFwTsmzGs+LdXK14=" >
+          <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_paynow_withlogo_whitebg.gif" border="0">
+        </form>
+      </div>
+
+      <div class="col-sm-3 col-md-2">
+        <p>With Google Wallet:</p>
+        <button class="google-wallet">Donate $50</button>
+      </div>
     </div>
 
   </div>
 
   <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'></script>
   <script type='text/javascript' src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
+  <script src="https://wallet.google.com/inapp/lib/buy.js"></script>
   <script type='text/javascript'>
     $(function() {
       $('.amounts .list-group-item').click(function() {
@@ -108,6 +135,10 @@
 
         alert(amount);
 
+      });
+
+      $('.google-wallet').on('click', function() {
+        alert('clicked!');
       });
     })
   </script>
