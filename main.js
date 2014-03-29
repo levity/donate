@@ -1,7 +1,12 @@
-var stripeServerUrl = 'https://stormy-chamber-7425.herokuapp.com/pay',
-  currentAmount;
+var stripePublishableKey = 'pk_test_WCgvPMzqFrQtoGuDF2EKlLhv';
+var stripeServerUrl      = 'https://stormy-chamber-7425.herokuapp.com/pay';
+var organizationName     = 'Glide Foundation';
+var successText          = 'Thank you so much for your contribution!';
+var paypalEmail          = 'paypal@glide.org';
 
-function include(file, callback) {
+var currentAmount;
+
+var include = function(file, callback) {
   var head      = document.getElementsByTagName('head')[0];
   var script    = document.createElement('script');
   script.type   = 'text/javascript';
@@ -16,22 +21,20 @@ function include(file, callback) {
   head.appendChild(script);
 };
 
-window.stripeComplete = function(result) {
+window.showResult = function(result) {
   var modal = $('#result');
   if (result.error) {
     modal.find('.message').text(result.error);
   } else {
-    modal.find('.message').text("Thank you so much for your contribution!");
+    modal.find('.message').text(successText);
   }
 };
 
 var stripeHandler = StripeCheckout.configure({
-  key: 'pk_test_WCgvPMzqFrQtoGuDF2EKlLhv',
+  key: stripePublishableKey,
   token: function(token, args) {
-    // Use the token to create the charge with a server-side script.
-    // You can access the token ID with `token.id`
     var data = {token: token.id, email: token.email, amount: currentAmount};
-    var url = stripeServerUrl + "?cb=stripeComplete&" + $.param(data);
+    var url = stripeServerUrl + "?cb=showResult&" + $.param(data);
     $('#result').find('.message').text('Please wait...').end().modal();
     include(url);
   }
@@ -44,7 +47,6 @@ var updateAmount = function() {
 
   currentAmount = amount;
   $('#paypal-amount').val(currentAmount);
-  if (window.console) console.log('amount: ' + currentAmount);
 };
 
 $(function() {
@@ -63,13 +65,15 @@ $(function() {
   // initialize the value from the first selected radio button
   updateAmount();
 
+  // set up PayPal variables
+  $('#paypal [name="business"]').val(paypalEmail);
+
   $('#pay-with-card').click(function(e) {
     stripeHandler.open({
-      name: 'Glide Foundation',
+      name: organizationName,
       description: 'Donation',
       amount: currentAmount * 100
     });
     e.preventDefault();
   });
-
 })
