@@ -1,9 +1,75 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Donate to Glide</title>
-  </head>
-  <body>
+<head>
+  <title>Donate to Glide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' type='text/css' href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'/>
+  <style>
+  .orange { color: #f77408; }
+  .logo { text-align: center; margin: 10px 0; }
+  .logo img { position: relative; left: -2px; }
+  .amounts .list-group-item label { margin-bottom: 0; }
+  .amounts .list-group-item input { margin-right: 11px; position: relative; top: -1px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
 
-    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2/jquery.min.js'></script>
-  </body>
+      <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="logo"><img src="glide-50-logo.jpg"/></div>
+
+        <p class="orange">
+          A radically inclusive, just and loving community mobilized to alleviate suffering and break the cycles of poverty and marginalization.
+        </p>
+
+        <p>How much would you like to donate?</p>
+
+        <ul class="list-group amounts">
+          <li class="list-group-item">
+            <label>
+              <input type="radio" name="amount" value="2500">
+              $2,500
+            </label>
+          </li>
+
+          <li class="list-group-item">
+            <label>
+              <input type="radio" name="amount" value="1000">
+              $1,000
+            </label>
+          </li>
+
+          <li class="list-group-item">
+            <label>
+              <input type="radio" name="amount" value="500">
+              $500
+            </label>
+          </li>
+
+        </ul>
+        <br/>
+
+        <button class="btn btn-default">Click me</button>
+        <button class="btn btn-success">No, click me!</button>
+        <button class="btn btn-info">Click me too</button>
+        <button class="btn btn-warning">Yep</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script type=""></script>
+
+  <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'></script>
+  <script type='text/javascript' src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
+  <script type='text/javascript'>
+    $(function() {
+      $('.amounts .list-group-item').click(function() {
+        $('.amounts input').prop('checked', false);
+        $(this).find('input').prop('checked', true);
+      })
+    })
+  </script>
+</body>
 </html>
