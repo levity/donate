@@ -1,8 +1,10 @@
+#intro { margin-bottom: 20px; }
 .orange { color: #f77408; }
-.logo { text-align: center; margin: 10px 0; }
+.logo { text-align: center; margin: 20px 0; }
 .logo img { position: relative; left: -2px; }
 h4 { margin-top: 30px; }
-.amounts .list-group-item {
+.amounts { margin-bottom: 15px; }
+.amounts li {
   padding: 0 0 0 15px;
   line-height: 42px;
   height: 42px;
@@ -15,7 +17,9 @@ h4 { margin-top: 30px; }
   border: 0; line-height: 40px; padding: 0 0 0 20px; height: 40px;
   box-shadow: none; -webkit-box-shadow: none;
 }
+.continue { text-align: right; }
 .modal-body .message { margin: 0; }
-.paypal-donations { margin: 20px; }
-#paypal-amount { display: block; margin-bottom: 10px; }
-.paypal-donations img { display: block; }
+#pick-method { text-align: center; }
+#pick-method .panel-body { padding-bottom: 0; }
+.method { margin-bottom: 20px; }
+.method p { margin-bottom: 5px; }

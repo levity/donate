@@ -8,65 +8,134 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" id="intro">
 
       <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
         <div class="logo"><img src="glide-50-logo.jpg" width="163" height="225"/></div>
 
-        <p class="orange">
+        <span class="orange">
           A radically inclusive, just and loving community mobilized to alleviate suffering and break the cycles of poverty and marginalization.
-        </p>
-
-        <h4>How much would you like to donate?</h4>
-
-        <ul class="list-group amounts">
-          <li class="list-group-item">
-            <input type="radio" name="amount" value="2500">
-            <div>$2,500</div>
-          </li>
-
-          <li class="list-group-item">
-            <input type="radio" name="amount" value="1000">
-            <div>$1,000</div>
-          </li>
-
-          <li class="list-group-item">
-            <input type="radio" name="amount" value="500" checked>
-            <div>$500</div>
-          </li>
-
-          <li class="list-group-item custom">
-            <input type="radio" name="amount" value="custom">
-            <div>
-              <input type="text" name="custom_amount" class="form-control" placeholder="Enter an amount" type="number" pattern="\d+">
-            </div>
-          </li>
-        </ul>
-
-        <h4>How would you like to pay?</h4>
+        </span>
       </div>
+
     </div>
 
     <div class="row">
-      <div class="col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-4">
-        <p>With a credit card:</p>
-        <button class="btn btn-primary" id="pay-with-card">Pay with card</button>
-      </div>
+      <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
 
-      <div class="col-sm-3 col-md-2">
-        <p>With Paypal:</p>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal">
-          <input type="hidden" name="amount" id="paypal-amount">
-          <input type="hidden" name="cmd" value="_donations">
-          <input type="hidden" name="business">
-          <input type="hidden" name="lc" value="US">
-          <input type="hidden" name="item_name" value="Donation">
-          <input type="hidden" name="no_note" value="0">
-          <input type="hidden" name="currency_code" value="USD">
-          <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-          <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        </form>
+        <div class="panel-group" id="accordion">
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a data-toggle="collapse" data-parent="#accordion" href="#pick-amount">
+                <h4 class="panel-title">
+                  How much would you like to donate?
+                </h4>
+              </a>
+            </div>
+
+            <div id="pick-amount" class="panel-collapse collapse in">
+              <div class="panel-body">
+
+                <ul class="list-group amounts">
+                  <li class="list-group-item">
+                    <input type="radio" name="amount" value="2500">
+                    <div>$2,500</div>
+                  </li>
+
+                  <li class="list-group-item">
+                    <input type="radio" name="amount" value="1000">
+                    <div>$1,000</div>
+                  </li>
+
+                  <li class="list-group-item">
+                    <input type="radio" name="amount" value="500" checked>
+                    <div>$500</div>
+                  </li>
+
+                  <li class="list-group-item custom">
+                    <input type="radio" name="amount" value="custom">
+                    <div>
+                      <input type="text" name="custom_amount" class="form-control" placeholder="Enter an amount" type="number" pattern="\d+">
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="continue">
+                  <button class="btn btn-primary">Continue</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a data-toggle="collapse" data-parent="#accordion" href="#pick-method">
+                <h4 class="panel-title">
+                  How would you like to pay?
+                </h4>
+              </a>
+            </div>
+
+            <div id="pick-method" class="panel-collapse collapse">
+              <div class="panel-body">
+
+                <div class="row">
+                  <div class="col-sm-6 method">
+                    <p>With a credit card:</p>
+                    <button class="btn btn-primary" id="pay-with-card">Pay with card</button>
+                  </div>
+
+                  <div class="col-sm-6 method">
+                    <p>With Paypal:</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal">
+                      <input type="hidden" name="amount" id="paypal-amount">
+                      <input type="hidden" name="cmd" value="_donations">
+                      <input type="hidden" name="business">
+                      <input type="hidden" name="lc" value="US">
+                      <input type="hidden" name="item_name" value="Donation">
+                      <input type="hidden" name="no_note" value="0">
+                      <input type="hidden" name="currency_code" value="USD">
+                      <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6 method">
+                    <p>With Amazon Simple Pay:</p>
+                    <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+                      <input type="hidden" name="returnUrl" value="http://www.glide.org" >
+                      <input type="hidden" name="processImmediate" value="1" >
+                      <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+                      <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+                      <input type="hidden" name="collectShippingAddress" value="0" >
+                      <input type="hidden" name="isDonationWidget" value="0" >
+                      <input type="hidden" name="amazonPaymentsAccountId" value="XHWRVRUHBPYO2283NDJS5FXTMSN5AN7GURBRMC" >
+                      <input type="hidden" name="cobrandingStyle" value="logo" >
+                      <input type="hidden" name="immediateReturn" value="1" >
+                      <input type="hidden" name="amount" id="amazon-amount">
+                      <input type="hidden" name="description" value="Donate to Glide" >
+                      <input type="hidden" name="abandonUrl" value="http://www.glide.org/donate" >
+                      <input type="hidden" name="signatureVersion" value="2" >
+                      <input type="hidden" name="signature" value="mnuI29O9GQ3ZLEsWpDbdLcA5whvdFwTsmzGs+LdXK14=" >
+                      <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_paynow_withlogo_whitebg.gif" border="0">
+                    </form>
+                  </div>
+
+                  <div class="col-sm-6 method">
+                    <p>With Google Wallet:</p>
+                    <button class="google-wallet btn btn-primary">Donate</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
       </div>
     </div>
 
@@ -79,9 +148,9 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="message">Loading...</h4>
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
 
   <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'></script>
   <script type='text/javascript' src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>

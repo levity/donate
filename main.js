@@ -47,6 +47,16 @@ var updateAmount = function() {
 
   currentAmount = amount;
   $('#paypal-amount').val(currentAmount);
+  $('#amazon-amount').val('USD ' + currentAmount);
+};
+
+var validateAmount = function(callback) {
+  if (parseInt(currentAmount).toString() == currentAmount) {
+    callback();
+  } else {
+    alert('Please enter a valid amount.');
+    $('[name="custom_amount"]').val('').focus();
+  }
 };
 
 $(function() {
@@ -64,6 +74,12 @@ $(function() {
 
   // initialize the value from the first selected radio button
   updateAmount();
+
+  $('.continue button').click(function() {
+    validateAmount(function() {
+      $('#pick-method').collapse({parent: '#accordion', toggle: true});
+    })
+  })
 
   // set up PayPal variables
   $('#paypal [name="business"]').val(paypalEmail);
