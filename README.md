@@ -7,6 +7,12 @@ Created during the [Hacktivation for the Homeless](http://www.hacktivation.org) 
 
 ----
 
+### n.b.
+
+Stripe Checkout integration depends on [levity/striper](https://github.com/levity/striper).
+
+----
+
 ### TODO
 
 * Google Wallet
