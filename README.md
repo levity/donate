@@ -29,4 +29,18 @@ and then, in `index.html`, replace the `<form>` tag underneath "Amazon Simple Pa
 
 ### Google Wallet
 
-TODO
+Create a [Google Wallet Merchant Account] (https://wallet.google.com/merchant/pages/)
+
+Google does not support variable donation amounts. You must decide which donation amounts
+to support and create a jwt hash for each amount. For instance, $25, $50, $100, $250, $500
+
+Create a set of fixed amount jwt hashes by entering your data into the [Google Wallet Digital Goods Demo](https://sandbox.google.com/checkout/inapp/merchant/demo.html)
+
+IMPORTANT:  Set the following value in the Expiration Field: 4551884523
+
+The Seller Data field may be left blank.
+
+Copy and paste the donation amounts and jwt hash values that you generate for each donation value into the
+jwts array in `main.js`
+
+JWT == JSON Web Token
