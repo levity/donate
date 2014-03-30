@@ -23,6 +23,7 @@ var include = function(file, callback) {
 
 window.showResult = function(result) {
   var modal = $('#result');
+  if (!modal.is(':visible')) modal.modal();
   if (result.error) {
     modal.find('.message').text(result.error);
   } else {
@@ -48,6 +49,12 @@ var updateAmount = function() {
   currentAmount = amount;
   $('#paypal-amount').val(currentAmount);
   $('#amazon-amount').val('USD ' + currentAmount);
+
+  if (!jwts[currentAmount]) {
+    $('#google-wallet-col').hide();
+  } else {
+    $('#google-wallet-col').show();
+  }
 };
 
 var validateAmount = function(callback) {
@@ -57,6 +64,49 @@ var validateAmount = function(callback) {
     alert('Please enter a valid amount.');
     $('[name="custom_amount"]').val('').focus();
   }
+};
+
+jwts = {
+  '25':  "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMjE3MjcxNjk0OTk0O" +
+         "TgwMzM3MiIsImF1ZCI6Ikdvb2dsZSIsInR5cCI6Imdvb2dsZS9" +
+         "wYXltZW50cy9pbmFwcC9pdGVtL3YxIiwiaWF0IjoxMzk2MjAyN" +
+         "TU1LCJleHAiOjQ1NTE4NzYxMDAsInJlcXVlc3QiOnsiY3VycmV" +
+         "uY3lDb2RlIjoiVVNEIiwicHJpY2UiOiIyNS4wMCIsIm5hbWUiO" +
+         "iIkMjUgRG9uYXRpb24iLCJkZXNjcmlwdGlvbiI6IkEgJDI1IER" +
+         "vbmF0aW9uIHRvIEdsaWRlIn19.t41DKBOezXBOuqOICtbq2-UF" +
+         "FPC98j324_G8hUbvlqg",
+  '50':  "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMjE3MjcxNjk0OTk0O" +
+         "TgwMzM3MiIsImF1ZCI6Ikdvb2dsZSIsInR5cCI6Imdvb2dsZS9" +
+         "wYXltZW50cy9pbmFwcC9pdGVtL3YxIiwiaWF0IjoxMzk2MjAyN" +
+         "jQ0LCJleHAiOjEzOTYyODkwNDQsInJlcXVlc3QiOnsiY3VycmV" +
+         "uY3lDb2RlIjoiVVNEIiwicHJpY2UiOiI1MC4wMCIsIm5hbWUiO" +
+         "iIkNTAgRG9uYXRpb24iLCJkZXNjcmlwdGlvbiI6IkEgJDUwIER" +
+         "vbmF0aW9uIHRvIEdsaWRlIn19.qFA_cUI5s2OUvVIe7U075iDu" +
+         "xlaNb79uzNEj51AQUO8",
+  '100': "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMjE3MjcxNjk0OTk0O" +
+         "TgwMzM3MiIsImF1ZCI6Ikdvb2dsZSIsInR5cCI6Imdvb2dsZS9" +
+         "wYXltZW50cy9pbmFwcC9pdGVtL3YxIiwiaWF0IjoxMzk2MjAyN" +
+         "zk2LCJleHAiOjEzOTYyODkxOTYsInJlcXVlc3QiOnsiY3VycmV" +
+         "uY3lDb2RlIjoiVVNEIiwicHJpY2UiOiIxMDAuMDAiLCJuYW1lI" +
+         "joiJDEwMCBEb25hdGlvbiIsImRlc2NyaXB0aW9uIjoiQSAkMTA" +
+         "wIERvbmF0aW9uIHRvIEdsaWRlIn19.fUBIhAKZD9xBOIBPU4s7" +
+         "27MLfvyhif982I_7JnWeVsE",
+  '250': "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMjE3MjcxNjk0OTk0O" +
+         "TgwMzM3MiIsImF1ZCI6Ikdvb2dsZSIsInR5cCI6Imdvb2dsZS9" +
+         "wYXltZW50cy9pbmFwcC9pdGVtL3YxIiwiaWF0IjoxMzk2MjAyO" +
+         "DQwLCJleHAiOjEzOTYyODkyNDAsInJlcXVlc3QiOnsiY3VycmV" +
+         "uY3lDb2RlIjoiVVNEIiwicHJpY2UiOiIyNTAuMDAiLCJuYW1lI" +
+         "joiJDI1MCBEb25hdGlvbiIsImRlc2NyaXB0aW9uIjoiQSAkMjU" +
+         "wIERvbmF0aW9uIHRvIEdsaWRlIn19.McXgZdjeVES2kGqc9WlL" +
+         "vt1XePZnJJolDWOEyoHiCTI",
+  '500': "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMjE3MjcxNjk0OTk0O" +
+         "TgwMzM3MiIsImF1ZCI6Ikdvb2dsZSIsInR5cCI6Imdvb2dsZS9" +
+         "wYXltZW50cy9pbmFwcC9pdGVtL3YxIiwiaWF0IjoxMzk2MjAyO" +
+         "TE1LCJleHAiOjEzOTYyODkzMTUsInJlcXVlc3QiOnsiY3VycmV" +
+         "uY3lDb2RlIjoiVVNEIiwicHJpY2UiOiI1MDAuMDAiLCJuYW1lI" +
+         "joiJDUwMCBEb25hdGlvbiIsImRlc2NyaXB0aW9uIjoiQSAkNTA" +
+         "wIERvbmF0aW9uIHRvIEdsaWRlIn19.lvPaGmy_tYY9UCwZ5GtP" +
+         "YTX1BNKi8hhaGm2jkmwlzqQ"
 };
 
 $(function() {
@@ -92,5 +142,12 @@ $(function() {
       amount: currentAmount * 100
     });
     e.preventDefault();
+  });
+
+  $('#google-wallet').click(function() {
+    google.payments.inapp.buy({
+      parameters: {},
+      jwt: jwts[currentAmount]
+    })
   });
 })
