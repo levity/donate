@@ -1,7 +1,7 @@
 donate
 ======
 
-Mobile-friendly donation page. Includes Stripe Checkout, PayPal, Amazon Payments, and Google Wallet.
+Mobile-friendly donation page. Includes Stripe Checkout, PayPal, Amazon Payments, and Google Wallet. [Live demo](https://s3.amazonaws.com/lwio-host/donate/index.html)
 
 Created during the [Hacktivation for the Homeless](http://www.hacktivation.org) for [GLIDE](http://glide.org/).
 
