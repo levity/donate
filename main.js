@@ -59,10 +59,12 @@ var updateAmount = function() {
 
 var validateAmount = function(callback) {
   if (parseInt(currentAmount).toString() == currentAmount) {
-    callback();
+    if (callback) callback();
+    return true;
   } else {
     alert('Please enter a valid amount.');
     $('[name="custom_amount"]').val('').focus();
+    return false;
   }
 };
 
@@ -126,10 +128,7 @@ $(function() {
   updateAmount();
 
   $('.continue button').click(function() {
-    validateAmount(function() {
-      $('#pick-method').collapse({parent: '#accordion', toggle: true});
-    })
-    return false;
+    return validateAmount();
   })
 
   // set up PayPal variables
