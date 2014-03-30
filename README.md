@@ -5,17 +5,28 @@ Mobile-friendly donation page. Includes Stripe Checkout, PayPal, Amazon Payments
 
 Created during the [Hacktivation for the Homeless](http://www.hacktivation.org) for [GLIDE](http://glide.org/).
 
-----
+## setup
 
-### n.b.
+Copy `index.html`, `main.js` and `style.css` to some web hosting.
 
-Stripe Checkout integration depends on [levity/striper](https://github.com/levity/striper).
+### Stripe Checkout
 
-----
+Stripe Checkout depends on a server-side component. [levity/striper](https://github.com/levity/striper) is one bare-bones implementation of that, designed to be Heroku-friendly.
 
-### TODO
+Edit the value of `stripePublishableKey` at the top of `main.js` to be the value of your Stripe account's publishable key.
 
-* Google Wallet
-* Documentation
-  * Generating signed form for Amazon Simple Pay Donations
-* Make non-Glide-specific
+### PayPal
+
+Edit the value of `paypalEmail` at the top of `main.js` to be the email account you wish to receive PayPal donations.
+
+### Amazon Payments
+
+[Sign up for an Amazon Simple Pay Donations account](https://payments.amazon.com/sdui/sdui/donationbutton?ld=NSCBAGooglePA) and fill out their online form to generate the code for your Donate Button. Then strip out all table-related HTML from the generated code, replace the textfield with name="amount" with this:
+```
+  <input type="hidden" name="amount" id="amazon-amount">
+```
+and then, in `index.html`, replace the `<form>` tag underneath "Amazon Simple Pay" and its contents with the new code.
+
+### Google Wallet
+
+TODO
