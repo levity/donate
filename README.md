@@ -1,9 +1,18 @@
 donate
 ======
 
-Mobile-friendly donation page. Includes Stripe Checkout, PayPal, Amazon Payments, and Google Wallet. [Live demo](https://s3.amazonaws.com/lwio-host/donate/index.html)
+Mobile-friendly donation page. Includes Stripe Checkout, PayPal, Amazon Payments, and Google Wallet. 
 
-Created during the [Hacktivation for the Homeless](http://www.hacktivation.org) for [GLIDE](http://glide.org/).
+Created during the [Hacktivation for the Homeless](http://www.hacktivation.org) for [GLIDE](http://glide.org/). 
+
+## demo
+
+[View it here](https://s3.amazonaws.com/lwio-host/donate/index.html). Caveats:
+
+* Stripe Checkout will work with [test credit card numbers](https://stripe.com/docs/testing) but make no payment
+* Google Wallet will work with [different test credit card numbers](https://developers.google.com/wallet/digital/training/getting-started/merchant-setup)
+* PayPal will make a real payment to GLIDE
+* Amazon Payments will fail at the very end, because our test account hasn't been approved for donations yet
 
 ## setup
 
