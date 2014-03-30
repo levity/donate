@@ -79,6 +79,8 @@ $(function() {
     validateAmount(function() {
       $('#pick-method').collapse({parent: '#accordion', toggle: true});
     })
+      return false;
+
   })
 
   // set up PayPal variables
